@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>To Do List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen py-8">
+    <div class="container mx-auto px-4 max-w-2xl">
+      <div class="bg-white rounded-lg shadow-md p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">To Do List</h2>
+
+        <form id="create-task" class="mb-6 flex gap-2">
+          <input
+            id="new-task-content"
+            type="text"
+            placeholder="Add a new task..."
+            required
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+          <button
+            type="submit"
+            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Create
+          </button>
+        </form>
+
+        <div class="mb-6 flex gap-2">
+          <button
+            class="filter-btn active px-4 py-2 rounded-md border border-blue-500 bg-blue-500 text-white hover:bg-blue-600"
+            data-filter="all"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-md border border-blue-500 text-blue-500 hover:bg-blue-50"
+            data-filter="active"
+          >
+            Active
+          </button>
+          <button
+            class="filter-btn px-4 py-2 rounded-md border border-blue-500 text-blue-500 hover:bg-blue-50"
+            data-filter="completed"
+          >
+            Completed
+          </button>
+        </div>
+
+        <div id="todo-list" class="space-y-2"></div>
+      </div>
+    </div>
+
+    <template id="task-template">
+      <div
+        class="task-row flex items-center gap-3 p-3 bg-gray-50 rounded-md group hover:bg-gray-100"
+        style="min-height: 3rem"
+      >
+        <input
+          type="checkbox"
+          class="mark-complete w-5 h-5 text-blue-500 rounded border-gray-300 focus:ring-blue-500"
+        />
+        <p class="task-content flex-1 text-gray-700"></p>
+        <button
+          class="delete hidden group-hover:block px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        >
+          Delete
+        </button>
+      </div>
+    </template>
+  </body>
+</html>
